@@ -70,6 +70,25 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("Pizza"));
     }
 
+    @Test
+    public void selected_items_should_display_the_total_amount_of_items() throws itemNotFoundException {
+        List<String> clickedItems = new ArrayList<String>();
+        clickedItems.add("Sweet corn soup");
+        clickedItems.add("Vegetable lasagne");
+        assertEquals(388,restaurant.getOrderTotal(clickedItems));
+    }
+    @Test
+    public void selected_items_should_display_total_amount_remove_one() throws itemNotFoundException {
+        List<String> clickedItems = new ArrayList<String>();
+        clickedItems.add("Sweet corn soup");
+        assertEquals(119,restaurant.getOrderTotal(clickedItems));
+    }
+    @Test
+    public void nothing_clicked_should_return_zero() throws itemNotFoundException {
+        List<String> clickedItems = new ArrayList<String>();
+        assertEquals(0, restaurant.getOrderTotal(clickedItems));
+    }
+
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
