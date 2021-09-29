@@ -19,4 +19,8 @@ Item {
                 ;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
 }
